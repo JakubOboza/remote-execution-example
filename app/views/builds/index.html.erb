@@ -1,0 +1,49 @@
+
+<%= link_to "New", new_build_path, class: "btn btn-primary span12" %>
+<br />
+Current builds:
+
+<div class="container-fluid">
+  <% @builds.each do |build| %>
+  <div class="row">
+    <div class="span4">
+        <dl class="dl-horizontal">
+        <dt>Command:</dt>
+        <dd><%= build.command %></dd>
+
+        <dt>Status:</dt>
+        <dd>
+          <%= build.state %>
+          <% if build.state == "success" %>
+            <span class="label label-success">Success</span>
+          <% elsif build.state == "failed" %>
+            <span class="label label-warning">Failed</span>
+          <% else %>
+            <span class="label label-default">Pending</span>
+          <% end %>
+        </dd>
+
+        <dt>Created:</dt>
+        <dd><%= build.created_at %></dd>
+
+        <dt>Updated:</dt>
+        <dd><%= build.updated_at %></dd>
+
+        <dt>Box:</dt>
+        <dd><%= build.remote %></dd>
+      </dl>
+    </div>
+    <div class="span7">
+      <% if build.state %>
+      <pre>
+        <code>
+          <%= build.output %>
+        </code>
+      </pre>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
