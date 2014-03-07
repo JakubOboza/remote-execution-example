@@ -13,4 +13,11 @@ describe Build do
     end.should change(Build, :count).by(1)
   end
 
+  it "can succeed or fail a build" do
+    build = Build.create(:command => "ls -l", :remote => "localhost")
+    build.failed!
+    build.reload
+    build.state.should == "failed"
+  end
+
 end

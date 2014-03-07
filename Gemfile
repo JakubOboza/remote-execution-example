@@ -35,6 +35,8 @@ gem "devise"
 gem "resque", "~> 1.25.2",  :require => "resque/server"
 gem "rush"
 
+gem 'simplecov', :require => false, :group => :test
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
