@@ -17,3 +17,7 @@ Next you can start `rushd` by typing `rushd`. Sadly it only supports mongrel as 
 
 and Enjoy!
 
+![example image](http://i.imgur.com/5WSpBlZ.png)
+
+# Oh...
+You need add your host key to authorized_keys on the remote box. Tomake this work.
