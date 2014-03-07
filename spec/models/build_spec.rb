@@ -9,7 +9,7 @@ describe Build do
   it "creates worker task when being created" do
     Resque.should_receive(:enqueue).with(CommandExecutor, anything())
     lambda do
-      Build.create(:command => "ls -l")
+      Build.create(:command => "ls -l", :remote => "localhost")
     end.should change(Build, :count).by(1)
   end
 

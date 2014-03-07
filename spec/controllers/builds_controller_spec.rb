@@ -27,7 +27,7 @@ describe BuildsController do
     it "can create build" do
       lambda do
         lambda do
-          post :create, build: {command: "ls -l"}
+          post :create, build: {command: "ls -l", remote: "localhost"}
           response.should be_redirect
         end.should change(Build, :count).by(1)
       end.should change(@user.builds, :count).by(1)
